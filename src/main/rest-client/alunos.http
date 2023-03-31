@@ -1,0 +1,52 @@
+@host = localhost
+@post = 8080
+@pathproject = academico-web-api
+
+//CRUD
+
+GET http://{{host}}:{{post}}/{{pathproject}}/alunos
+
+# porra não ta funcionando o send request
+GET http://{{host}}:{{post}}/{{pathproject}}/alunos/11
+
+# Criar um alunos
+POST http://{{host}}:{{post}}/{{pathproject}}/alunos
+Content-Type: application/json
+
+{
+    "nome": "Natanael",
+    "sobrenome": "Ferreira",
+    "idade": 20,
+    "naturalidade": "Brasileiro",
+    "sexo": "masculino",
+    "cpf": "073",
+    "curso": "Informatica",
+    "estaMatriculado": true,
+    "media": 6,
+    "mediaPondereda": 7,
+    "aprovado": true,
+    "situacao": "aprovado"
+}
+
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/alunos/100
+Content-Type: application/json
+
+{
+    "matricula": 01,
+    "nome": "Natanael",
+    "sobrenome": "Ferreira",
+    "idade": 20,
+    "naturalidade": "Brasileiro",
+    "sexo": "masculino",
+    "cpf": "073",
+    "curso": "Informatica",
+    "estaMatriculado": true,
+    "media": 6,
+    "mediaPondereda": 7,
+    "aprovado": true,
+    "situacao": "aprovado"
+}
+
+
+DELETE http://{{host}}:{{post}}/{{pathproject}}/alunos/10

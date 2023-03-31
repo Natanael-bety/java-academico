@@ -1,0 +1,33 @@
+@host = localhost
+@post = 8080
+@pathproject = academico-web-api
+
+GET http://{{host}}:{{post}}/{{pathproject}}/salas
+
+GET http://{{host}}:{{post}}/{{pathproject}}/salas/12
+
+POST http://{{host}}:{{post}}/{{pathproject}}/salas
+Content-Type: application/json
+
+{
+    "numero": 1,
+    "cpAlunos": 40,
+    "arCondicionado": true,
+    "quadroBranco": false,
+    "laboratorio": true
+}
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/salas/200
+Content-Type: application/json
+
+{
+    "id": 4,
+    "numero": 1,
+    "cpAlunos": 40,
+    "arCondicionado": "true",
+    "quadroBranco": "true",
+    "laboratorio": "true"
+}
+
+DELETE http://{{host}}:{{post}}/{{pathproject}}/salas/12
+

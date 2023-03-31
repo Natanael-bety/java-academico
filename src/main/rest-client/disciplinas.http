@@ -1,0 +1,28 @@
+@host = localhost
+@post = 8080
+@pathproject = academico-web-api
+
+GET http://{{host}}:{{post}}/{{pathproject}}/disciplinas
+
+# porra não ta funcionando o send request
+GET http://{{host}}:{{post}}/{{pathproject}}/disciplinas/13
+
+# Criar um endereço
+POST http://{{host}}:{{post}}/{{pathproject}}/disciplinas
+Content-Type: application/json
+
+{
+    "nome": "Matemat9ica",
+    "cgHoraria": 150
+}
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/disciplinas/150
+Content-Type: application/json
+
+{
+    "id": 5,
+    "nome": "Matematica",
+    "cgHoraria": 150
+}
+
+DELETE http://{{host}}:{{post}}/{{pathproject}}/disciplinas/15

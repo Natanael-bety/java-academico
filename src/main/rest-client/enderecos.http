@@ -1,0 +1,45 @@
+@host = localhost
+@post = 8080
+@pathproject = academico-web-api
+
+# Lista todos os endereços
+GET http://{{host}}:{{post}}/{{pathproject}}/enderecos
+
+# porra não ta funcionando o send request
+GET http://{{host}}:{{post}}/{{pathproject}}/enderecos/11
+
+# Criar um endereço
+POST http://{{host}}:{{post}}/{{pathproject}}/enderecos
+Content-Type: application/json
+
+{
+    "CEP":490000,
+    "bairro": "Centro",
+    "cidade": "Lagarto",
+    "estado": "Sergipe",
+    "rua": "Rua da Feiras"
+}
+
+# Atualizar todos os atributos de endereço
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/enderecos/100
+Content-Type: application/json
+
+{
+    "id": 200,
+    "CEP":490000,
+    "bairro": "Centro",
+    "cidade": "Lagarto",
+    "estado": "Sergipe",
+    "rua": "Rua da Feira"
+}
+
+
+DELETE http://{{host}}:{{post}}/{{pathproject}}/enderecos/10
+
+# Ativar/Desativar um endereço não CRUD
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/enderecos/100/status
+Content-Type: text/plain
+
+ATIVO

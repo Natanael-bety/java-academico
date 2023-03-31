@@ -1,0 +1,123 @@
+@startuml Academico
+
+   Class App{
+      {static} void main()
+   }
+
+   enum StatusEndereco{
+      ATIVO
+      DESATIVO
+   }
+
+   Class Endereco {
+   - int int
+   - int CEP
+   - String rua
+   - String bairro
+   - String cidade
+   - String estado
+   - StatusEndereco status
+   }
+
+   abstract Class Pessoa{
+      - String nome
+      - String sobrenome
+      - int dataDeNacimento
+      - int matricula
+      - int cpf
+      - String endereco
+      - char sexo
+      
+      + {abstract} int gerarMatricula()
+   }
+
+   Class Aluno{
+      - String curso
+      - boolean estaMatriculado
+      - double media
+      - double mediaPonderada
+      - boolean aprovado
+      - String situacao
+
+      list<Notas> notas
+      {static} int quantidadeAlunos
+      {static} String nomeImstituicao
+
+      + int gerarMatricula()
+      + void calcularMediaPonderada()
+      + void calcularMediaAritimetica()
+      - void verificarSituacao()
+   }
+
+   Class disciplina{
+      - String nome
+      - int cgHoraria
+   }
+
+   Class sala{
+      - int numero
+      - int cpAlunos
+      - boolean arCondicionado
+      - boolean quadroBranco
+      - boolean laboratorio
+   }
+
+   Class turma{
+      - String nome
+      - int periodo
+      - double mediaTurma
+      - Disciplina disciplina
+      - Professor professor
+      List<Notas> notas
+      List<Sala> sala
+      + void calcularMedia()
+   }
+
+   Class Nota{
+      - double valor
+      - int Peso
+   }
+
+   Class Professor{
+      - double salario
+      - int cgHoraria
+      
+      + int gerarMatricula()
+   }
+
+   interface IProjeto #aliceblue ##[dotted]blue {
+   + void submeterProjetoPesquisa()
+   + void submeterProjetoExtensao()
+   }
+   interface IEvento #aliceblue ##[dotted]blue {
+   + void inscrever()
+   }
+
+   enum SituacaoAluno {
+      Aprovado
+      Recuperacao
+      Reprovado
+   }
+
+   App--Aluno
+   App--Professor
+
+   Pessoa<|-- Aluno
+   Pessoa<|-- Professor
+   Pessoa o-- "1..0" Endereco : contém >
+
+   turma o-- "1..*" sala : contém >
+   turma o-- "1..30" Aluno : contém >
+   turma o-- "1..1" Professor : contém >
+   turma o-- "1..1" disciplina : contém >
+
+   Aluno *-- "2..4" Nota : contém >
+
+   IProjeto <|.. Professor
+   IProjeto <|.. Aluno
+   IEvento <|.. Professor
+   IEvento <|.. Aluno
+
+   Endereco o-- "1..1" StatusEndereco : contém >
+
+@enduml

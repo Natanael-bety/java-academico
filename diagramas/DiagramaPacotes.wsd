@@ -1,0 +1,60 @@
+@startuml Academico
+
+package br.edu.ifs.academico.endereco <<note>> {
+    class Endereco
+}
+
+package br.edu.ifs.academico.pessoa <<note>> {
+    class Pessoa
+    Pessoa o-- Endereco
+    Pessoa <|-- Professor
+    Pessoa <|-- Aluno
+}
+
+package br.edu.ifs.academico.professor <<note>> {
+    class Professor
+}
+
+package br.edu.ifs.academico.aluno <<note>> {
+    class Aluno
+    Aluno *-- Nota
+}
+
+package br.edu.ifs.academico.nota <<note>> {
+    class Nota
+}
+
+package br.edu.ifs.academico.disciplina <<note>> {
+    class Disciplina
+}
+
+package br.edu.ifs.academico.sala <<note>> {
+    class Sala
+}
+
+package br.edu.ifs.academico.turma <<note>> {
+    class Turma
+    Turma o-- Professor
+    Turma o-- Aluno
+    Turma o-- Disciplina
+    Turma o-- Sala
+}
+
+package br.edu.ifs.academico.projeto <<note>> {
+    interface IProjeto
+    IProjeto <|-- Professor
+    IProjeto <|-- Aluno
+}
+
+package br.edu.ifs.academico.Evento <<note>> {
+    interface IEvento
+    IEvento <|-- Professor
+    IEvento <|-- Aluno
+
+}
+
+package br.edu.ifs.academico.Serializacao <<note>> {
+    class LerArquivo
+    class CriarArquivo
+}
+@enduml

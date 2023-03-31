@@ -1,0 +1,44 @@
+@host = localhost
+@post = 8080
+@pathproject = academico-web-api
+
+//CRUD
+
+GET http://{{host}}:{{post}}/{{pathproject}}/professores
+
+# porra não ta funcionando o send request
+GET http://{{host}}:{{post}}/{{pathproject}}/professores/11
+
+# Criar um professores
+POST http://{{host}}:{{post}}/{{pathproject}}/professores
+Content-Type: application/json
+
+{
+    "nome": "Fernando",
+    "sobrenome": "Dias",
+    "idade": 20,
+    "naturalidade": "Brasileiro",
+    "sexo": "masculino",
+    "cpf": "874",
+    "salario": 2000,
+    "cgHoraria": 150
+}
+
+
+PUT http://{{host}}:{{post}}/{{pathproject}}/professores/100
+Content-Type: application/json
+
+{
+    "matricula": 01,
+    "nome": "Fernando",
+    "sobrenome": "Dias",
+    "idade": 20,
+    "naturalidade": "Brasileiro",
+    "sexo": "masculino",
+    "cpf": "874",
+    "salario": 2000,
+    "cgHoraria": 150
+}
+
+
+DELETE http://{{host}}:{{post}}/{{pathproject}}/professores/10
